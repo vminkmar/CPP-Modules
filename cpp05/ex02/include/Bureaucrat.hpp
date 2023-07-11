@@ -27,7 +27,7 @@ public:
   void incrementGrade(int increment_grade);
   void decrementGrade(int decrement_grade);
   void signForm(AForm &signedForm);
-	void executeForm(AForm const &form);
+	void executeForm(AForm const &form) const;
 
   // nested classes
   class GradeTooHighException : public std::exception {

@@ -23,5 +23,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
   std::string newString;
 	newString = m_target + "_shrubbery";
-
+	std::ofstream newFile(newString);
+	
 }
