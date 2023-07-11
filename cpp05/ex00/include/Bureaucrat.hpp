@@ -1,5 +1,6 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+#include <exception>
 #include <iostream>
 #include <new>
 #include <string>
@@ -19,13 +20,20 @@ public:
   std::string getName() const;
   int getGrade() const;
 
-  // exceptions
-  int GradeTooHighException();
-  int GradeTooLowException();
-
   // functions
   void incrementGrade(int increment_grade);
   void decrementGrade(int decrement_grade);
+
+  // nested classes
+  class GradeTooHighException : public std::exception {
+  public:
+    virtual const char *what() const throw();
+  };
+
+  class GradeTooLowException : public std::exception {
+  public:
+    virtual const char *what() const throw();
+  };
 };
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
 

@@ -10,19 +10,20 @@ int main() {
   std::cout << person1;
   person3.decrementGrade(100);
   std::cout << person3;
+
   try {
     person1.incrementGrade(100);
-    person1.GradeTooHighException();
-  } catch (int m_grade) {
-    std::cout << person1.getName() << " grade too high"
-              << " (" << person1.getGrade() << ")" << std::endl;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
-
-  person3.decrementGrade(100);
   try {
-    person3.GradeTooLowException();
-  } catch (int m_grade) {
-    std::cout << person3.getName() << " grade too low"
-              << " (" << person3.getGrade() << ")" << std::endl;
+    person3.decrementGrade(100);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  try {
+    Bureaucrat person4("Peter", 0);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
 }
