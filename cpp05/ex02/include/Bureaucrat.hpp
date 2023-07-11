@@ -4,8 +4,9 @@
 #include <iostream>
 #include <new>
 #include <string>
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
 private:
@@ -25,8 +26,8 @@ public:
   // functions
   void incrementGrade(int increment_grade);
   void decrementGrade(int decrement_grade);
-  void signForm(Form &signedForm);
-	void executeForm(Form const &form);
+  void signForm(AForm &signedForm);
+	void executeForm(AForm const &form);
 
   // nested classes
   class GradeTooHighException : public std::exception {

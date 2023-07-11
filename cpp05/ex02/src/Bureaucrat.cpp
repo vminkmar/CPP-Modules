@@ -47,7 +47,7 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
 }
 
 
-void Bureaucrat::signForm(Form &signedForm){
+void Bureaucrat::signForm(AForm &signedForm){
 	if(signedForm.getSignGrade() >= m_grade)
 		std::cout << m_name << " signed " << signedForm.getName() << std::endl;
 	else

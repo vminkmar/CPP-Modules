@@ -1,6 +1,10 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 #include "Bureaucrat.hpp"
+#include <fstream>
+#include <iostream>
+#include <string>
+
 class Bureaucrat;
 
 class AForm {
@@ -24,7 +28,7 @@ public:
   // functions
   void beSigned(Bureaucrat &offical);
   void printStatusForm();
-  void execute(Bureaucrat const &executor) const;
+  virtual void execute(Bureaucrat const &executor) const = 0;
 
       // nested classes
   class GradeTooHighException : public std::exception {

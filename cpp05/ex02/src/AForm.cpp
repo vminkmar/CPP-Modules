@@ -1,54 +1,52 @@
 #include "AForm.hpp"
 
-Form::Form(std::string name, int signGrade, int executeGrade, bool Signed)
-    : name(name), signGrade(signGrade), executeGrade(executeGrade), Signed(Signed) {
-			Signed = false;
+AForm::AForm(){
   std::cout << name << " Constructor called" << std::endl;
 }
 
-Form::Form(const Form &copy) : name(copy.name) {
+AForm::AForm(const AForm &copy) : name(copy.name) {
   std::cout << name << " Copy Constructor called" << std::endl;
   *this = copy;
 }
 
-Form &Form::operator=(const Form &obj) {
+AForm &AForm::operator=(const AForm &obj) {
   signGrade = obj.signGrade;
   executeGrade = obj.executeGrade;
   Signed = obj.Signed;
   return *this;
 }
 
-Form::~Form() { std::cout << name << " Destructor called" << std::endl; }
+AForm::~AForm() { std::cout << name << " Destructor called" << std::endl; }
 
-std::string Form::getName() const { return name; }
+std::string AForm::getName() const { return name; }
 
-int Form::getSignGrade() const { return signGrade; }
+int AForm::getSignGrade() const { return signGrade; }
 
-int Form::getexecuteGrade() const { return executeGrade; }
+int AForm::getexecuteGrade() const { return executeGrade; }
 
-void Form::printStatusForm(){
+void AForm::printStatusAForm(){
 	if(Signed == false)
 		std::cout << name << " is not signed" << std::endl;
 	else
 		std::cout << name << " is signed" << std::endl;
 }
 
-void Form::beSigned(Bureaucrat &offical) {
+void AForm::beSigned(Bureaucrat &offical) {
   if (offical.getGrade() <= signGrade)
     Signed = true;
 	else
-    throw Form::GradeTooLowException();
+    throw AForm::GradeTooLowException();
 }
 
-const char *Form::GradeTooLowException::what() const throw() {
-  return "Grade is too low to sign form";
+const char *AForm::GradeTooLowException::what() const throw() {
+  return "Grade is too low to sign AForm";
 }
 
-const char *Form::GradeTooHighException::what() const throw() {
+const char *AForm::GradeTooHighException::what() const throw() {
   return "Grade is too high";
 }
 
-std::ostream &operator<<(std::ostream &os, const Form &obj) {
+std::ostream &operator<<(std::ostream &os, const AForm &obj) {
   os << obj.getName() << " needs a grade of " << obj.getSignGrade() << " to be signed."
      << std::endl;
   return os;
