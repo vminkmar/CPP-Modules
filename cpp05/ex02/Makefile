@@ -1,4 +1,4 @@
-NAME			:=	ex01
+NAME			:=	ex02
 
 CC				:=	c++
 
@@ -10,7 +10,7 @@ CFLAGS			:=	-g -Wall -Wextra -Werror -std=c++98 -MMD -I $(INCLUDE)
 
 VPATH           :=	src/
 
-SRC_FILES		:=	main.cpp Bureaucrat.cpp Form.cpp
+SRC_FILES		:=	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 ODIR			:=	obj
 

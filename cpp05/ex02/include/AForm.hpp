@@ -15,7 +15,8 @@ private:
   bool Signed;
 
 public:
-  AForm(std::string name, int signGrade, int executeGrade, bool Signed);
+  AForm();
+  // AForm(std::string name, int signGrade, int executeGrade, bool Signed);
   AForm(const AForm &copy);
   AForm &operator=(const AForm &obj);
   ~AForm();

@@ -21,5 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-  m_target = m_target.append("_shrubbery");
+  std::string newString;
+	newString = m_target + "_shrubbery";
+
 }

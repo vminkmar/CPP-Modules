@@ -11,7 +11,7 @@ private:
   bool Signed;
 
 public:
-  Form(std::string name, int signGrade, int executeGrade, bool Signed);
+  Form();
   Form(const Form &copy);
   Form &operator=(const Form &obj);
   ~Form();

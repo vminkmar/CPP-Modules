@@ -24,7 +24,7 @@ int AForm::getSignGrade() const { return signGrade; }
 
 int AForm::getexecuteGrade() const { return executeGrade; }
 
-void AForm::printStatusAForm(){
+void AForm::printStatusForm(){
 	if(Signed == false)
 		std::cout << name << " is not signed" << std::endl;
 	else
