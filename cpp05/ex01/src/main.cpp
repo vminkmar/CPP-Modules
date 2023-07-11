@@ -1,28 +1,33 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-  Bureaucrat person1("Hans", 150);
-  Bureaucrat person2("Bernhard", 1);
-  Bureaucrat person3(person2);
-  std::cout << person1;
-  std::cout << person3;
-  person1.incrementGrade(100);
-  std::cout << person1;
-  person3.decrementGrade(100);
-  std::cout << person3;
-  try {
-    person1.incrementGrade(100);
-    person1.GradeTooHighException();
-  } catch (int m_grade) {
-    std::cout << person1.getName() << " grade too high"
-              << " (" << person1.getGrade() << ")" << std::endl;
-  }
+  Form form1("Application", 20, 10, false);
+  Bureaucrat person1("Hans", 10);
+  Bureaucrat person2("Peter", 30);
+  std::cout << std::endl;
+  std::cout << person1 << std::endl;
+  std::cout << person2 << std::endl;
+  std::cout << form1 << std::endl;
 
-  person3.decrementGrade(100);
   try {
-    person3.GradeTooLowException();
-  } catch (int m_grade) {
-    std::cout << person3.getName() << " grade too low"
-              << " (" << person3.getGrade() << ")" << std::endl;
+    form1.beSigned(person2);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
+	std::cout << std::endl;
+	person2.signForm(form1);
+	std::cout << std::endl;
+	form1.printStatusForm();
+	std::cout << std::endl;
+
+  try {
+    form1.beSigned(person1);
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+	
+	std::cout << std::endl;
+	form1.printStatusForm();
+	std::cout << std::endl;
 }
