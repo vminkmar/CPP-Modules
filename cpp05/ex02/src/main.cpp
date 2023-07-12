@@ -46,5 +46,14 @@ int main() {
   }
   std::cout << std::endl;
   std::cout << std::endl;
+	person1.signForm(SCF); 
+	SCF.beSigned(person1);
+	SCF.execute(person1);
+  std::cout << std::endl;
+	RRF.beSigned(person1);
+	person1.signForm(RRF);
+	RRF.execute(person1);
+  std::cout << std::endl;
+  std::cout << std::endl;
   std::cout << std::endl;
 }

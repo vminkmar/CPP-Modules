@@ -42,9 +42,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
                "  /         \\\n"
                " /           \\\n"
                "/_____________\\\n"
-               "     | |\n"
-               "     | |\n";
+               "      | |\n"
+               "      | |\n";
     newFile.close();
+		std::cout << newString << " File has been created" << std::endl;
   }
   return;
 }

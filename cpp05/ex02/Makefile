@@ -30,7 +30,7 @@ $(ODIR):
 	mkdir $(ODIR)
 
 clean:
-	$(RM) $(OBJS_O) $(OBJS_D)
+	$(RM) $(OBJS_O) $(OBJS_D) SCF_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)
