@@ -11,6 +11,7 @@ private:
   int m_grade;
 
 public:
+  Bureaucrat();
   Bureaucrat(std::string name, int grade);
   Bureaucrat(const Bureaucrat &copy);
   Bureaucrat &operator=(const Bureaucrat &obj);

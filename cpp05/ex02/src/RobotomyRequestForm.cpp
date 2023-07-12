@@ -1,12 +1,17 @@
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm()
+    : AForm("RobotomyRequestForm", 72, 45, false), m_target(""){
+  std::cout << "Robotomy Constructor called" << std::endl;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    : m_target(target) {
-  std::cout << "Shrubbery Constructor called" << std::endl;
+    : AForm("RobotomyRequestForm", 72, 45, false),m_target(target) {
+  std::cout << "Robotomy Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-  std::cout << "Shrubbery Destructor called" << std::endl;
+  std::cout <<"Robotomy Destructor called" << std::endl;
 }
 
 RobotomyRequestForm &
@@ -16,13 +21,22 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &obj) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(
-    const RobotomyRequestForm &copy) {
+    const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45, false), m_target(copy.m_target){
   *this = copy;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-  std::string newString;
-	newString = m_target + "_shrubbery";
-	std::ofstream newFile(newString);
-	
+	if(isSigned() == false)
+		throw FormNotSignedException();
+	else if(executor.getGrade() > getexecuteGrade())
+		throw GradeTooLowException();
+	else
+		std::cout << "makes brrr brr" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj) {
+  os << "Robotomy has a Sign Grade of "
+     << obj.getSignGrade() << " and a Execute Grade of " << obj.getexecuteGrade()
+     << std::endl;
+  return os;
 }

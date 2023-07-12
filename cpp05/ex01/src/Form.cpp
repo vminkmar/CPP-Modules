@@ -1,5 +1,7 @@
 #include "Form.hpp"
 
+Form::Form(){}
+
 Form::Form(std::string name, int signGrade, int executeGrade, bool Signed)
     : name(name), signGrade(signGrade), executeGrade(executeGrade), Signed(Signed) {
 			Signed = false;

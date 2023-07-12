@@ -8,6 +8,7 @@ private:
   std::string m_target;
 
 public:
+  RobotomyRequestForm();
   RobotomyRequestForm(std::string target);
   RobotomyRequestForm(const RobotomyRequestForm &copy);
   RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
@@ -18,5 +19,6 @@ public:
   void execute(Bureaucrat const &executor) const;
 
 };
+std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj);
 
 #endif
