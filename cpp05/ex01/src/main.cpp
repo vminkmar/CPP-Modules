@@ -9,7 +9,6 @@ int main() {
   std::cout << person1 << std::endl;
   std::cout << person2 << std::endl;
   std::cout << form1 << std::endl;
-
   try {
     form1.beSigned(person2);
   } catch (std::exception &e) {
