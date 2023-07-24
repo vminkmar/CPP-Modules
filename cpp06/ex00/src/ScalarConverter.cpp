@@ -140,16 +140,18 @@ bool ScalarConverter::checkForPseudoLiterals(std::string input) {
 void ScalarConverter::Convert(std::string input) {
   if (checkForPseudoLiterals(input) == true)
     return;
+  char *ptr;
   if (input.length() == 1) {
     char c = input[0];
     ScalarConverter::convertChar(c);
     return;
   } else if (ScalarConverter::isInt(input) == true) {
-    int i = stoi(input);
-    ScalarConverter::convertInt(i);
-    return;
+    long int i = strtol(input.c_str(), &ptr, 10);
+		if(*ptr == '\0'){
+    	ScalarConverter::convertInt(i);
+    	return;
+		}
   }
-  char *ptr;
   float f = strtof(input.c_str(), &ptr);
   if (*ptr == '\0') {
     ScalarConverter::convertFloat(f);
