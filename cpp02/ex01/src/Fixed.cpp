@@ -11,7 +11,7 @@ Fixed::Fixed(const int i) {
 }
 
 Fixed::Fixed(const float f) {
-	this->value = static_cast<int>(std::roundf(f * (1 << bits)));
+	this->value = static_cast<int>(roundf(f * (1 << bits)));
 	std::cout << "Float Constructor called" << std::endl;
 }
 
