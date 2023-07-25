@@ -65,6 +65,10 @@ echo -e "${GREEN}Testing: a${NC}"
 ./ex00 "a"
 echo -e
 
+echo -e "${GREEN}Testing: -2000000000000000000000000000000000000000000000${NC}"
+./ex00 "-2000000000000000000000000000000000000000000000"
+echo -e
+
 echo -e "${GREEN}Testing: abc${NC}"
 ./ex00 "abc"
 echo -e

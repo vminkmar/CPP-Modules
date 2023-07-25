@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
       for (int inner = 0; (size_t)inner < argvString.length(); inner++) {
         argvString.at(inner) = std::toupper(argvString[inner]);
       }
-      std::cout << argvString << " ";
+      std::cout << argvString;
     }
     std::cout << std::endl;
   }

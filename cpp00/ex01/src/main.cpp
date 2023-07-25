@@ -27,4 +27,5 @@ int main() {
     else
       std::cout << "Invalid input" << std::endl;
   }
+	return (0);
 }

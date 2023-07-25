@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vminkmar <vminkmar@student.42heilbronn.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 13:28:33 by vminkmar          #+#    #+#             */
-/*   Updated: 2023/06/12 11:36:38 by vminkmar         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PhoneBook.hpp"
 
 bool IsValidNumber(const std::string &str) {
@@ -169,14 +157,14 @@ void Phonebook::SearchContact() {
   std::cout
       << "If you want to search for a special Contact then enter the Index: ";
   std::getline(std::cin, input);
-  if (input.empty())	
+  if (input.empty())
     return;
   if (IsNotDigit(input) == true) {
     std::cout << "Invalid input" << std::endl;
     return;
   } else {
     digit = atoi(input.c_str());
-	std::cout << digit << std::endl << std::endl;
+    std::cout << digit << std::endl << std::endl;
     if ((digit < 0 || digit > 8) && CheckEmptySlot(digit) == true)
       std::cout << "Invalid input";
     if (PrintContact(digit) == 1)

@@ -13,7 +13,7 @@ class ScalarConverter{
 	ScalarConverter();
 	ScalarConverter(std::string input);
 	ScalarConverter(const ScalarConverter &copy);
-	// ScalarConverter &operator=(const ScalarConverter &obj);
+	ScalarConverter &operator=(const ScalarConverter &);
 	~ScalarConverter();
 
 
@@ -23,6 +23,7 @@ class ScalarConverter{
 	static bool isDouble(std::string input);
 	static bool isInt(std::string input);
 	static bool isChar(std::string input);
+	static bool checkForFloat(std::string input);
 	static void convertChar(char c);
 	static void convertInt(int i);
 	static void convertFloat(float f);

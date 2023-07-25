@@ -10,9 +10,10 @@ ScalarConverter::~ScalarConverter() {
   std::cout << "ScalarConverter Destructor called" << std::endl;
 }
 
-// ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj) {
-//   return *this;
-// }
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter&) {
+  
+	return *this;
+}
 
 bool ScalarConverter::isFloat(std::string input) {
   std::istringstream iss(input);
@@ -41,6 +42,35 @@ bool ScalarConverter::isInt(std::string input) {
   return (false);
 }
 
+bool ScalarConverter::checkForFloat(std::string input){
+	size_t i = 0;
+	while(i < input.find('.'))
+	{
+		if (!isdigit(input[i]))
+			return (false);
+		i++;
+	}
+	i++;
+	int counter = 0;
+	while(i < input.size()){
+		if (isdigit(input[i]))
+			i++;
+		else if(input[i] == 'f')
+		{
+			counter++;
+		}
+		else
+			return (false);
+		i++;
+	}
+	if (counter != 1)
+		return (false);
+	
+	return (true);
+	
+
+}
+
 bool checkInput(int argc, char **argv) {
   if (argc != 2) {
     std::cerr << "Check number of arguments" << std::endl;
@@ -48,11 +78,13 @@ bool checkInput(int argc, char **argv) {
   }
   std::string input = argv[1];
   if (input.empty()) {
-    std::cerr << "There is nothing to converter" << std::endl;
+    std::cerr << "There is nothing to convert" << std::endl;
     return (false);
   }
   return (true);
 }
+
+
 
 void ScalarConverter::convertChar(char c) {
   std::cout << "float  |			" << static_cast<float>(c)
@@ -152,12 +184,18 @@ void ScalarConverter::Convert(std::string input) {
     	return;
 		}
   }
-  float f = strtof(input.c_str(), &ptr);
-  if (*ptr == '\0') {
-    ScalarConverter::convertFloat(f);
-    return;
-  }
-  float d = strtod(input.c_str(), &ptr);
+	if(checkForFloat(input) == true)
+	{
+		int pos;
+		pos = input.find('f');
+		input.erase(pos);
+ 		float f = strtof(input.c_str(), &ptr);
+ 		if (*ptr == '\0') {
+ 		  ScalarConverter::convertFloat(f);
+ 		  return;
+ 		}
+	}
+  double d = strtod(input.c_str(), &ptr);
   if (*ptr == '\0') {
     ScalarConverter::convertDouble(d);
     return;
