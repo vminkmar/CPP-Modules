@@ -6,7 +6,7 @@
 /*   By: vminkmar <vminkmar@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:39:27 by vminkmar          #+#    #+#             */
-/*   Updated: 2023/07/07 11:33:46 by vminkmar         ###   ########.fr       */
+/*   Updated: 2023/07/25 11:29:30 by vminkmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 public:
   Zombie(const std::string &zombieName);
   ~Zombie();
-  void announce();
+  void announce(void);
 };
 
 void randomChump(std::string name);

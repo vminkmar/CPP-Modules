@@ -6,7 +6,7 @@
 /*   By: vminkmar <vminkmar@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:40:58 by vminkmar          #+#    #+#             */
-/*   Updated: 2023/06/12 10:17:15 by vminkmar         ###   ########.fr       */
+/*   Updated: 2023/07/25 11:41:12 by vminkmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int main() {
   Zombie **zombies = zombieHorde(numberZombies, "Brian");
   for (int i = 0; i < numberZombies; i++) {
     zombies[i]->announce();
+  }
+	for (int i = 0; i < numberZombies; i++) {
     delete zombies[i];
   }
   delete[] zombies;
