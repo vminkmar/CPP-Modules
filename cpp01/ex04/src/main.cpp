@@ -6,7 +6,7 @@
 /*   By: vminkmar <vminkmar@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:40:58 by vminkmar          #+#    #+#             */
-/*   Updated: 2023/07/07 11:56:35 by vminkmar         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:50:56 by vminkmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void replaceString(char **input) {
   std::string name = input[1];
   std::string s1 = input[2];
   std::string s2 = input[3];
-  std::fstream file(name);
+  std::fstream file(name.c_str());
   if (!file.is_open()){
     std::cout << "there is no file with that name" << std::endl;
 		return ;
 	}
-  std::ofstream newFile(name.append(".replace"));
+  std::ofstream newFile(name.append(".replace").c_str());
   std::string line;
   while (!file.eof()) {
     std::getline(file, line);
