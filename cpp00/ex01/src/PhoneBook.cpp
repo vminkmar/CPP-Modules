@@ -1,10 +1,9 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(){
-	ContactCount = 0;
-}
+PhoneBook::PhoneBook() { ContactCount = 0; }
 
+PhoneBook::~PhoneBook() {}
 
 bool IsValidNumber(const std::string &str) {
   for (size_t i = 0; i < str.length(); i++) {
@@ -163,14 +162,14 @@ void PhoneBook::SearchContact() {
   std::cout
       << "If you want to search for a special Contact then enter the Index: ";
   std::getline(std::cin, input);
-  if (input.empty())	
+  if (input.empty())
     return;
   if (IsNotDigit(input) == true) {
     std::cout << "Invalid input" << std::endl;
     return;
   } else {
     digit = atoi(input.c_str());
-	std::cout << digit << std::endl << std::endl;
+    std::cout << digit << std::endl << std::endl;
     if ((digit < 0 || digit > 8) && CheckEmptySlot(digit) == true)
       std::cout << "Invalid input";
     if (PrintContact(digit) == 1)

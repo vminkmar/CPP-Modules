@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     for (int outer = 1; outer < argc; outer++) {
       std::string argvString = argv[outer];
       for (int inner = 0; (size_t)inner < argvString.length(); inner++) {
-        argvString.at(inner) = std::toupper(argvString[inner]);
+        argvString[inner] = std::toupper(argvString[inner]);
       }
       std::cout << argvString;
     }
