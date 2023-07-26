@@ -12,7 +12,7 @@ void StartPhonebook() {
 }
 
 int main() {
-  Phonebook Phonebook;
+  PhoneBook Phonebook;
   std::string input;
 
   while (1 && !std::cin.eof()) {

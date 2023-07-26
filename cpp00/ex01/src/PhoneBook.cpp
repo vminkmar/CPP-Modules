@@ -1,6 +1,11 @@
 
 #include "PhoneBook.hpp"
 
+PhoneBook::PhoneBook(){
+	ContactCount = 0;
+}
+
+
 bool IsValidNumber(const std::string &str) {
   for (size_t i = 0; i < str.length(); i++) {
     if (isdigit(str[i]) == 0)
@@ -89,13 +94,13 @@ void AddDarkestSecret(Contact &newContact, std::string &DarkestSecret) {
   }
 }
 
-bool Phonebook::CheckEmptySlot(int i) const {
+bool PhoneBook::CheckEmptySlot(int i) const {
   if (Contacts[i].getFirstName().empty())
     return (true);
   return (false);
 }
 
-void Phonebook::PrintDiffLength(int i) const {
+void PhoneBook::PrintDiffLength(int i) const {
   std::cout << std::setw(10) << std::right << i << "|" << std::setw(10);
   if (Contacts[i].getFirstName().size() > 10)
     std::cout << std::right << Contacts[i].getFirstName().substr(0, 9) << ".|";
@@ -116,7 +121,7 @@ void Phonebook::PrintDiffLength(int i) const {
               << "|";
 }
 
-int Phonebook::PrintAllContacts() const {
+int PhoneBook::PrintAllContacts() const {
   if (Contacts[0].getFirstName().empty()) {
     std::cout << "The Phonebook is empty" << std::endl;
     return (1);
@@ -133,7 +138,7 @@ int Phonebook::PrintAllContacts() const {
   return (0);
 }
 
-int Phonebook::PrintContact(int index) const {
+int PhoneBook::PrintContact(int index) const {
   if (Contacts[index].getFirstName().empty()) {
     std::cout << "There is no Contact with that index";
     return (1);
@@ -149,7 +154,7 @@ int Phonebook::PrintContact(int index) const {
   return (0);
 }
 
-void Phonebook::SearchContact() {
+void PhoneBook::SearchContact() {
   std::string input;
   int digit;
   if (PrintAllContacts() == 1)
@@ -173,7 +178,7 @@ void Phonebook::SearchContact() {
   }
 }
 
-void Phonebook::AddContact() {
+void PhoneBook::AddContact() {
   Contact newContact;
   std::string FirstName, LastName, Nickname, PhoneNumber, DarkestSecret;
   AddFirstName(newContact, FirstName);

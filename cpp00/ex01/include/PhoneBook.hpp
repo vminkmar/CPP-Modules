@@ -6,7 +6,7 @@
 #include <string>
 #include <cstdlib>
 
-class Phonebook {
+class PhoneBook {
 private:
   Contact Contacts[8];
   int ContactCount;
@@ -16,7 +16,7 @@ private:
   void PrintDiffLength(int) const;
 
 public:
-  Phonebook() : ContactCount(0) {}
+  PhoneBook();
   void AddContact();
   void SearchContact();
 };
