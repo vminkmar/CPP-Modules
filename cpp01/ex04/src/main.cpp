@@ -6,7 +6,7 @@
 /*   By: vminkmar <vminkmar@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:40:58 by vminkmar          #+#    #+#             */
-/*   Updated: 2023/07/25 12:50:56 by vminkmar         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:29:15 by vminkmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ int main(int argc, char **argv) {
   if(inputCheck(argc) == 1)
 		return (1);
   replaceString(argv);
+	return (0);
 }

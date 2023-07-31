@@ -61,6 +61,10 @@ echo -e "${GREEN}Testing: -2000000000000000${NC}"
 ./ex00 "-2000000000000000"
 echo -e
 
+echo -e "${GREEN}Testing: -5000000000000000.10${NC}"
+./ex00 "-5000000000000000.10"
+echo -e
+
 echo -e "${GREEN}Testing: a${NC}"
 ./ex00 "a"
 echo -e
@@ -75,6 +79,14 @@ echo -e
 
 echo -e "${GREEN}Testing: 0${NC}"
 ./ex00 "0"
+echo -e
+
+echo -e "${GREEN}Testing: 10.07${NC}"
+./ex00 "10.07"
+echo -e
+
+echo -e "${GREEN}Testing: 10.07ff${NC}"
+./ex00 "10.07ff"
 echo -e
 
 echo -e "${GREEN}Testing: \"\" (empty input)${NC}"

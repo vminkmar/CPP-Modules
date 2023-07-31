@@ -6,19 +6,20 @@ Fixed::Fixed() : value(0) {
   std::cout << "Default Constructor called" << std::endl;
 }
 Fixed::Fixed(const int i) {
-	this->value = i << bits;
-	std::cout << "Int Constructor called" << std::endl;
+  this->value = i << bits;
+  std::cout << "Int Constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float f) {
-	this->value = static_cast<int>(roundf(f * (1 << bits)));
-	std::cout << "Float Constructor called" << std::endl;
+  this->value = static_cast<int>(roundf(f * (1 << bits)));
+  std::cout << "Float Constructor called" << std::endl;
 }
 
 Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
-Fixed::Fixed(const Fixed &copy) : value(copy.value) {
+Fixed::Fixed(const Fixed &copy){
   std::cout << "Copy Constructor called" << std::endl;
+	this->value = copy.value;
 }
 
 Fixed &Fixed::operator=(const Fixed &obj) {
@@ -27,25 +28,18 @@ Fixed &Fixed::operator=(const Fixed &obj) {
   return *this;
 }
 
-int Fixed::getRawBits() {
-  return this->value;
-}
+int Fixed::getRawBits() { return this->value; }
 
-void Fixed::setRawBits(int const raw) {
-  value = raw;
-}
+void Fixed::setRawBits(int const raw) { value = raw; }
 
-int Fixed::toInt() const {
-	return value >> bits;
-}
+int Fixed::toInt() const { return value >> bits; }
 
 float Fixed::toFloat() const {
-	float result  = static_cast<float>(value) / (1 << bits);
-	return result;
+  float result = static_cast<float>(value) / (1 << bits);
+  return result;
 }
 
-std ::ostream &operator<<(std::ostream &os, Fixed const &obj)
-{
-	os << obj.toFloat();
-	return os;
+std::ostream &operator<<(std::ostream &os, Fixed const &obj) {
+  os << obj.toFloat();
+  return os;
 }

@@ -1,6 +1,7 @@
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter() {
+  floatCounter = 0;
   std::cout << "ScalarConverter Constructor called" << std::endl;
 }
 
@@ -10,9 +11,9 @@ ScalarConverter::~ScalarConverter() {
   std::cout << "ScalarConverter Destructor called" << std::endl;
 }
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter&) {
-  
-	return *this;
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj) {
+  this->floatCounter = obj.floatCounter;
+  return *this;
 }
 
 bool ScalarConverter::isFloat(std::string input) {
@@ -42,34 +43,52 @@ bool ScalarConverter::isInt(std::string input) {
   return (false);
 }
 
-bool ScalarConverter::checkForFloat(std::string input){
-	size_t i = 0;
-	while(i < input.find('.'))
-	{
-		if (!isdigit(input[i]))
-			return (false);
+bool ScalarConverter::checkForFloat(std::string input) {
+  size_t i = 0;
+	if (input[0] == '-')
 		i++;
-	}
-	i++;
-	int counter = 0;
-	while(i < input.size()){
-		if (isdigit(input[i]))
-			i++;
-		else if(input[i] == 'f')
-		{
-			counter++;
-		}
-		else
-			return (false);
-		i++;
-	}
-	if (counter != 1)
-		return (false);
-	
-	return (true);
-	
+  while (i < input.find('.')) {
+    if (!isdigit(input[i]))
+      return (false);
+    i++;
+  }
+  i++;
+  int counter = 0;
+  while (i < input.size()) {
+    if (isdigit(input[i]))
+      i++;
+    else if (input[i] == 'f') {
+      counter++;
+    } else
+      return (false);
+    i++;
+  }
+  if (counter != 1)
+    return (false);
 
+  return (true);
 }
+
+
+
+bool ScalarConverter::checkForDouble(std::string input) {
+  size_t i = 0;
+	if (input[0] == '-')
+		i++;
+  while (i < input.find('.')) {
+    if (!isdigit(input[i]))
+      return (false);
+    i++;
+  }
+	i++;
+	while(i < input.length()){
+		if(!isdigit(input[i]))
+			return (false);
+		i++;
+	}
+  return (true);
+}
+
 
 bool checkInput(int argc, char **argv) {
   if (argc != 2) {
@@ -84,41 +103,40 @@ bool checkInput(int argc, char **argv) {
   return (true);
 }
 
-
-
 void ScalarConverter::convertChar(char c) {
   std::cout << "float  |			" << static_cast<float>(c)
             << ".0f" << std::endl;
   std::cout << "int    |			" << static_cast<int>(c)
             << std::endl;
   std::cout << "char   |			" << c << std::endl;
-  std::cout << "double |			" << static_cast<double>(c) << ".0"
-            << std::endl;
+  std::cout << "double |			" << static_cast<double>(c)
+            << ".0" << std::endl;
 }
 
 void ScalarConverter::convertInt(int i) {
   std::cout << "float  |			" << static_cast<float>(i)
             << ".0f" << std::endl;
   if (i > INT_MAX || i < INT_MIN)
-		std::cout << "int    |			not printable" << std::endl;
-	else
-  	std::cout << "int    |			" << static_cast<int>(i) <<std::endl;
+    std::cout << "int    |			not printable" << std::endl;
+  else
+    std::cout << "int    |			" << static_cast<int>(i)
+              << std::endl;
   if (i < 0 && isprint(i))
     std::cout << "char   |			" << static_cast<char>(i)
               << std::endl;
   else
     std::cout << "char   |			not printable" << std::endl;
-  std::cout << "double |			" << static_cast<double>(i) << ".0"
-            << std::endl;
+  std::cout << "double |			" << static_cast<double>(i)
+            << ".0" << std::endl;
 }
 
 void ScalarConverter::convertFloat(float f) {
   std::cout << "float  |			" << f << "f" << std::endl;
-	if (f > INT_MAX || f < INT_MIN || isnan(f))
-		std::cout << "int    |			not printable" << std::endl;
-	else
-  	std::cout << "int    |			" << static_cast<int>(f)
-  	          << std::endl;
+  if (f > INT_MAX || f < INT_MIN || isnan(f))
+    std::cout << "int    |			not printable" << std::endl;
+  else
+    std::cout << "int    |			" << static_cast<int>(f)
+              << std::endl;
   if (f < 0 && isprint(f))
     std::cout << "char   |			" << static_cast<char>(f)
               << std::endl;
@@ -150,23 +168,29 @@ bool ScalarConverter::checkForPseudoLiterals(std::string input) {
     std::cout << "int    |			not printable" << std::endl;
     std::cout << "char   |			not printable" << std::endl;
     std::cout << "double |			inf" << std::endl;
-		return (true);
+    return (true);
   }
-	if (input == "-inff") {
-  std::cout << "float  |			-inff" << std::endl;
-  std::cout << "int    |			not printable" << std::endl;
-  std::cout << "char   |			not printable" << std::endl;
-  std::cout << "double |			-inf" << std::endl;
+  if (input == "-inff") {
+    std::cout << "float  |			-inff" << std::endl;
+    std::cout << "int    |			not printable" << std::endl;
+    std::cout << "char   |			not printable" << std::endl;
+    std::cout << "double |			-inf" << std::endl;
+    return (true);
+  } else if (input == "nanf") {
+    std::cout << "float  |			nanf" << std::endl;
+    std::cout << "int    |			not printable" << std::endl;
+    std::cout << "char   |			not printable" << std::endl;
+    std::cout << "double |			nan" << std::endl;
+    return (true);
+  }
+  return (false);
+}
+
+bool ScalarConverter::checkforPoint(std::string input){
+	size_t pos = input.find('.');
+	if(pos == std::string::npos)
+		return (false);
 	return (true);
-  }
-	else if (input == "nanf") {
-  std::cout << "float  |			nanf" << std::endl;
-  std::cout << "int    |			not printable" << std::endl;
-  std::cout << "char   |			not printable" << std::endl;
-  std::cout << "double |			nan" << std::endl;
-	return (true);
-  }
-	return (false);
 }
 
 void ScalarConverter::Convert(std::string input) {
@@ -179,26 +203,27 @@ void ScalarConverter::Convert(std::string input) {
     return;
   } else if (ScalarConverter::isInt(input) == true) {
     long int i = strtol(input.c_str(), &ptr, 10);
-		if(*ptr == '\0'){
-    	ScalarConverter::convertInt(i);
-    	return;
-		}
+    if (*ptr == '\0') {
+      ScalarConverter::convertInt(i);
+      return;
+    }
   }
-	if(checkForFloat(input) == true)
-	{
-		int pos;
-		pos = input.find('f');
-		input.erase(pos);
- 		float f = strtof(input.c_str(), &ptr);
- 		if (*ptr == '\0') {
- 		  ScalarConverter::convertFloat(f);
- 		  return;
- 		}
+  else if (checkForFloat(input) == true && checkforPoint(input) == true) {
+    int pos;
+    pos = input.find('f');
+    input.erase(pos);
+    double f = strtof(input.c_str(), &ptr);
+    if (*ptr == '\0') {
+      ScalarConverter::convertFloat(f);
+      return;
+    }
+  }
+	else if (checkForDouble(input) == true && checkforPoint(input) == true){
+  	double d = strtod(input.c_str(), &ptr);
+  	if (*ptr == '\0') {
+  	  ScalarConverter::convertDouble(d);
+  	  return;
+  	}
 	}
-  double d = strtod(input.c_str(), &ptr);
-  if (*ptr == '\0') {
-    ScalarConverter::convertDouble(d);
-    return;
-  }
   std::cerr << "Given value can't be converted" << std::endl;
 }
