@@ -10,7 +10,7 @@ CFLAGS			:=	-g -Wall -Wextra -Werror -std=c++98 -MMD -I $(INCLUDE)
 
 VPATH           :=	src/
 
-SRC_FILES		:=	main.cpp ScalarConverter.cpp
+SRC_FILES		:=	main.cpp ScalarConverter.cpp ConverterUtils.cpp Converter.cpp
 
 ODIR			:=	obj
 

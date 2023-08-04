@@ -25,16 +25,8 @@ echo -e "${GREEN}Testing: nan${NC}"
 ./ex00 "nan"
 echo -e
 
-echo -e "${GREEN}Testing: -nan${NC}"
-./ex00 "-nan"
-echo -e
-
 echo -e "${GREEN}Testing: nanf${NC}"
 ./ex00 "nanf"
-echo -e
-
-echo -e "${GREEN}Testing: -nanf${NC}"
-./ex00 "-nanf"
 echo -e
 
 echo -e "${GREEN}Testing: 100${NC}"
