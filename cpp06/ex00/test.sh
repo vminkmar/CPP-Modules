@@ -84,3 +84,10 @@ echo -e
 echo -e "${GREEN}Testing: \"\" (empty input)${NC}"
 ./ex00 ""
 echo -e
+
+echo -e "${GREEN}Testing: 1.7976931348623157E+309${NC}"
+./ex00 "1.7976931348623157E+309"
+echo -e
+
+
+

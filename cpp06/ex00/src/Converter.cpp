@@ -121,7 +121,7 @@ void ScalarConverter::Convert(std::string input) {
       ScalarConverter::convertFloat(f, input);
       return;
     }
-  } else if ((checkForDouble(input) == true && checkforPoint(input) == true) ||  checkForNanorInf(input) == true){
+  } else if ((checkForDouble(input) == true && checkforPoint(input) == true) || checkForNanorInf(input) == true){
     	double d = strtod(input.c_str(), &ptr);
     	if (*ptr == '\0') {
     	  ScalarConverter::convertDouble(d, input);

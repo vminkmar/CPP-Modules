@@ -64,6 +64,10 @@ bool ScalarConverter::checkForDouble(std::string input) {
   }
   i++;
   while (i < input.length()) {
+    if (input[i] == '+' || 'E') {
+      i++;
+      continue;
+    }
     if (!isdigit(input[i]))
       return (false);
     i++;
@@ -78,8 +82,9 @@ bool ScalarConverter::checkforPoint(std::string input) {
   return (true);
 }
 
-bool ScalarConverter::checkForNanorInf(std::string input){
-	if(input == "nan" || input == "inf" || input == "-inf" || input == "-nan" || input == "-nanf")
-		return (true);
-	return (false);
+bool ScalarConverter::checkForNanorInf(std::string input) {
+  if (input == "nan" || input == "inf" || input == "-inf" || input == "-nan" ||
+      input == "-nanf")
+    return (true);
+  return (false);
 }
