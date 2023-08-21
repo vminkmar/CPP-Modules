@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Define color codes
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 echo -e
 echo -e "${GREEN}Testing: inf${NC}"
