@@ -1,11 +1,12 @@
-#ifndef Array_HPP
-#define Array_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 #include <cctype>
 #include <exception>
 #include <iostream>
 #include <string>
 
-template <typename T, unsigned int n> class Array {
+template <typename T, unsigned int n>
+class Array {
 private:
   T *array;
 
