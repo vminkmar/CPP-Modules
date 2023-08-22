@@ -3,22 +3,12 @@
 #include "Base.hpp"
 #include "C.hpp"
 
-Base *generate(void) {
-  Base *p;
-  int i = rand() % 3;
-  if (i == 1)
-    p = new A();
-  else if (i == 2)
-    p = new B();
-  else if (i == 3)
-    p = new C();
-  else
-    p = NULL;
-  return p;
+int main() {
+	for(int i = 0; i < 15; i++){
+	Base *A = generate();
+	identify(A);
+	identify(*A);
+	delete A;
+	}
+
 }
-
-void identify(Base *p) {}
-
-void identify(Base &p) {}
-
-int main() {}
