@@ -5,20 +5,24 @@
 #include <exception>
 #include <iostream>
 #include <stack>
+#include <iterator>
+#include <deque>
 #include <string>
 #include <vector>
 
 template <typename T, typename U = std::deque<T> > class MutantStack : public std::stack<T, U>{
-private:
-  std::stack<T> container;
 
 public:
-  MutantStack();
-  ~MutantStack();
-  // MutantStack(const MutantStack &copy){}
-  // MutantStack &operator=(const MutantStack &obj){}
-	
-	
+  MutantStack() : std::stack<T, U>() {};
+  ~MutantStack(){};
+
+	typedef typename std::stack<T, U>::container_type::iterator iterator; 
+	typedef typename std::stack<T, U>::container_type::const_iterator const_iterator; 
+
+	iterator begin() {return std::stack<T, U>::c.begin();} 
+	iterator begin() const {return std::stack<T, U>::c.begin();} 
+	iterator end() {return std::stack<T, U>::c.end();} 
+	iterator end() const {return std::stack<T, U>::c.end();} 	
 };
 
 #endif

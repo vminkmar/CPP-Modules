@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <string>
 #include <exception>
+#include <climits>
 
 class Span{
 	private:

@@ -10,7 +10,7 @@ CFLAGS			:=	-g -Wall -Wextra -Werror -std=c++98 -MMD -I $(INCLUDE)
 
 VPATH           :=	src/
 
-SRC_FILES		:=	main.cpp Span.cpp
+SRC_FILES		:=	main.cpp
 ODIR			:=	obj
 
 OBJS_O			:=	$(SRC_FILES:%.cpp=$(ODIR)/%.o)
