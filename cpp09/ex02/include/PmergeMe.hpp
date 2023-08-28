@@ -3,10 +3,12 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <iterator>
 #include <stack>
 #include <cstdlib>
 #include <queue>
 #include <vector>
+#include <new>
 
 class PmergeMe{
 	private:
@@ -16,7 +18,11 @@ class PmergeMe{
 	~PmergeMe();
 	// PmergeMe(const PmergeMe &copy);
 	// PmergeMe &operator=(const PmergeMe &obj);
+	PmergeMe &argvToIntandVector(char **argv);
+	void print();
 };
 bool checkInput(int argc);
+int getLength(char **argv);
+
 
 #endif
