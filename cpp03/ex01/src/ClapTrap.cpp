@@ -14,7 +14,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy) {
   *this = copy;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &obj) {
+ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
   this->m_HP = obj.m_HP;
   this->m_name = obj.m_name;
   this->m_AD = obj.m_AD;
@@ -22,18 +22,16 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &obj) {
   return *this;
 }
 
-ClapTrap::~ClapTrap() {
-  std::cout << "Destructor called" << std::endl;
-}
+ClapTrap::~ClapTrap() { std::cout << "Destructor called" << std::endl; }
 
 void ClapTrap::attack(const std::string &target) {
   if (this->m_EP <= 0) {
     std::cout << this->m_name << " has no EP left" << std::endl;
     return;
   }
-    std::cout << m_name << " attacks " << target << " causing " << m_AD
-              << " points of damage" << std::endl;
-    this->m_EP--;
+  std::cout << m_name << " attacks " << target << " causing " << m_AD
+            << " points of damage" << std::endl;
+  this->m_EP--;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {

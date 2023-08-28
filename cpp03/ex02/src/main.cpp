@@ -32,7 +32,7 @@ int main(void) {
     FT1.attack(FT2.getName());
     std::cout << "\n" << i << "\n";
     FT1.takeDamage(FT2.getAD());
-	std::cout << std::endl;
+    std::cout << std::endl;
   }
   FT1.highFivesGuys();
   FT2.highFivesGuys();

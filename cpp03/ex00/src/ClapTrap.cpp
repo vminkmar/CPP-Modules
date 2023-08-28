@@ -29,9 +29,9 @@ void ClapTrap::attack(const std::string &target) {
     std::cout << this->m_name << " has no EP left" << std::endl;
     return;
   }
-    std::cout << m_name << " attacks " << target << " causing " << m_AD
-              << " points of damage" << std::endl;
-    this->m_EP--;
+  std::cout << m_name << " attacks " << target << " causing " << m_AD
+            << " points of damage" << std::endl;
+  this->m_EP--;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {

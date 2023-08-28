@@ -1,18 +1,14 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
-	:ClapTrap()
-{
+ScavTrap::ScavTrap() : ClapTrap() {
   std::cout << "Default ScavTrap Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string player)
-	: ClapTrap(player)
-{
+ScavTrap::ScavTrap(std::string player) : ClapTrap(player) {
   std::cout << "Name ScavTrap Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy){
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy) {
   std::cout << "Copy ScavTrap Constructor called" << std::endl;
   *this = copy;
 }
@@ -28,4 +24,3 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &obj) {
 ScavTrap::~ScavTrap() {
   std::cout << "ScavTrap Destructor called" << std::endl;
 }
-

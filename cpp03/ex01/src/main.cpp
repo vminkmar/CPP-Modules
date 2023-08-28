@@ -33,6 +33,6 @@ int main(void) {
     ST1.attack(ST2.getName());
     std::cout << "\n" << i << "\n";
     ST2.takeDamage(ST2.getAD());
-	std::cout << std::endl;
+    std::cout << std::endl;
   }
 }
