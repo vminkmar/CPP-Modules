@@ -6,6 +6,8 @@ int main(void) {
 	Fixed c(1);
 	std::cout << c << std::endl;
   std::cout << a << std::endl;
+	Fixed e = a++;
+  std::cout <<"IS " << e << std::endl; 
   std::cout << ++a << std::endl; 
   std::cout << a << std::endl; 
   std::cout << a++ << std::endl; 

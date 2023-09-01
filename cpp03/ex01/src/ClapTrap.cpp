@@ -35,11 +35,11 @@ void ClapTrap::attack(const std::string &target) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  this->m_HP += amount;
   if (this->m_EP <= 0) {
     std::cout << "You have no EP left" << std::endl;
     return;
   }
+  this->m_HP += amount;
   this->m_EP--;
   std::cout << this->m_name << " got repaired " << std::endl;
 }

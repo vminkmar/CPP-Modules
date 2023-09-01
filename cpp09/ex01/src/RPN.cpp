@@ -85,6 +85,11 @@ void RPN::calculate(std::string line) {
     }
     i++;
   }
-  std::cout << stack.top() << std::endl;
+	if (stack.size() != 1)
+	{
+		std::cout << "Too many numbers in the stack" << std::endl;
+		return;
+	}
   stack.pop();
+  std::cout << stack.top() << std::endl;
 }
