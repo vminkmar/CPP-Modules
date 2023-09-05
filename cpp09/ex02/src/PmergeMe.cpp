@@ -1,36 +1,78 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe() : lastJacob(0) {}
 
 PmergeMe::~PmergeMe() {}
 
+// PmergeMe &PmergeMe::argvToIntandVector(char **argv) {
+// 	int start = 0;
+//   int end = 0;
+//   int number;
+//   std::string tmp;
+//   std::string string = argv[1];
+//   while (argv[1][end] != '\0') {
+//     if (isdigit(argv[1][end]) || argv[1][end] == '-') {
+//       while (isdigit(argv[1][end]) || argv[1][end] == '-') {
+//         if (argv[1][end + 1] == ' ' || argv[1][end + 1] == '\0')
+//           tmp = string.substr(start, end + 1);
+//         end++;
+//       }
+//     } else if (argv[1][end] == ' ') {
+//       end++;
+//       start = end;
+//       continue;
+//     } else {
+//       throw wrongInputException();
+//     }
+//     number = atoi(tmp.c_str());
+//     if (number < 0)
+//       throw negativeIntException();
+//     vector.push_back(number);
+//   }
+//   return *this;
+// }
+
+
+
 PmergeMe &PmergeMe::argvToIntandVector(char **argv) {
-  int start = 0;
+	int arg = 1;
+	int start = 0;
   int end = 0;
   int number;
   std::string tmp;
-  std::string string = argv[1];
-  while (argv[1][end] != '\0') {
-    if (isdigit(argv[1][end]) || argv[1][end] == '-') {
-      while (isdigit(argv[1][end]) || argv[1][end] == '-') {
-        if (argv[1][end + 1] == ' ' || argv[1][end + 1] == '\0')
-          tmp = string.substr(start, end + 1);
-        end++;
-      }
-    } else if (argv[1][end] == ' ') {
-      end++;
-      start = end;
-      continue;
-    } else {
-      throw wrongInputException();
-    }
-    number = atoi(tmp.c_str());
-    if (number < 0)
-      throw negativeIntException();
-    vector.push_back(number);
-  }
+	while(argv[arg] != NULL){
+		end = 0;
+  	while (argv[arg][end] != '\0') {
+  		std::string string = argv[arg];
+  	  if (isdigit(argv[arg][end]) || argv[arg][end] == '-') {
+  	    while (isdigit(argv[arg][end]) || argv[arg][end] == '-') {
+					if(string.size() == 1)
+						tmp = string;
+  	      else if (argv[arg][end + 1] == ' ' || argv[arg][end + 1] == '\0')
+  	        tmp = string.substr(start, end + 1);
+  	      end++;
+  	    }
+  	  } else if (argv[arg][end] == ' ') {
+  	    end++;
+  	    start = end;
+  	    continue;
+  	  } else {
+  	    throw wrongInputException();
+  	  }
+  	  number = atoi(tmp.c_str());
+  	  if (number < 0)
+  	    throw negativeIntException();
+  	  vector.push_back(number);
+  	}
+		arg++;
+	}
   return *this;
 }
+
+
+
+
+
 
 void PmergeMe::print() {
   // for (std::vector<std::pair<int, int> >::iterator it = newPair.begin();
@@ -41,9 +83,13 @@ void PmergeMe::print() {
        ++it) {
     std::cout << *it << std::endl;
   }
-}
 
-void PmergeMe::sortVector() {}
+	// for (std::vector<int>::iterator it = vector.begin(); it != vector.end();
+  //      ++it) {
+  //   std::cout << *it << std::endl;
+  // }
+	// std::cout << std::endl;
+}
 
 void PmergeMe::sortBySize(size_t i, size_t n) {
   int value = newPair[i].second;
@@ -77,20 +123,43 @@ int PmergeMe::jabosthal(int n) {
 		return jabosthal(n - 1) + 2 * jabosthal(n - 2);
 }
 
+
+
+
+void PmergeMe::finalSort(int jacob){
+	if()
+
+
+	lastJacob = jacob;
+}
+
 void PmergeMe::getPairsAndSort() {
   size_t size;
   if (vector.size() % 2 != 0)
     size = vector.size() - 1;
   else
     size = vector.size();
-  for (size_t i = 0; i < size - 1; i += 2) {
+	
+  for (size_t i = 0; i < size; i += 2) {
     newPair.push_back(std::make_pair(vector[i], vector[i + 1]));
   }
   sortPairs();
   sortBySize(0, newPair.size() - 1);
   writeInNewVector();
-	
+	size_t number = 0;
+	size_t i = 0;
+	while(1){
+		if(number >= result.size())
+			break;
+		number = jacob(i);
+		i++;
+	}
 }
+
+
+
+
+
 
 const char *PmergeMe::wrongInputException::what() const throw() {
   return "Wrong Input";
@@ -106,4 +175,13 @@ bool checkInput(int argc) {
     return false;
   }
   return true;
+}
+
+size_t jacob(size_t n) {
+
+  if (n == 0)
+    return 0;
+  if (n == 1)
+    return 1;
+  return jacob(n - 1) + 2 * jacob(n - 2);
 }

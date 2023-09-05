@@ -16,6 +16,7 @@ private:
   std::vector<int> vector;
   std::vector<int> result;
 	std::vector<std::pair<int, int> > newPair;
+	size_t lastJacob;
 
 public:
   PmergeMe();
@@ -25,10 +26,11 @@ public:
   // PmergeMe &operator=(const PmergeMe &obj);
   PmergeMe &argvToIntandVector(char **argv);
   void print();
-	void sortVector();
+	void sortVector(int jacob);
 	void getPairsAndSort();
 	void sortPairs();
 	void writeInNewVector();
+	void finalSort(int jacob);
 	void sortBySize(size_t i, size_t n);
 	int jabosthal(int n);
   class wrongInputException : public std::exception {
@@ -43,5 +45,6 @@ public:
 };
 bool checkInput(int argc);
 int getLength(char **argv);
+size_t jacob(size_t n);
 
 #endif

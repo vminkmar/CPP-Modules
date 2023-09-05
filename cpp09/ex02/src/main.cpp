@@ -8,13 +8,12 @@ int main(int argc, char **argv) {
     Merge.argvToIntandVector(argv);
   } catch (PmergeMe::wrongInputException &ex1) {
     std::cerr << "Caught exception: " << ex1.what() << std::endl;
-		return (1);
+    return (1);
   } catch (PmergeMe::negativeIntException &ex2) {
     std::cerr << "Caught exception: " << ex2.what() << std::endl;
-		return (1);
+    return (1);
   }
-	Merge.getPairsAndSort();
 
-  Merge.print();
-	// Merge.sortVector();
+  Merge.getPairsAndSort();
+  // Merge.print();
 }
