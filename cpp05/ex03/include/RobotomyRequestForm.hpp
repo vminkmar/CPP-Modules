@@ -14,6 +14,7 @@ public:
   RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
   ~RobotomyRequestForm();
 
+	std::string getTarget() const;
 
 	//functions
   void execute(Bureaucrat const &executor) const;

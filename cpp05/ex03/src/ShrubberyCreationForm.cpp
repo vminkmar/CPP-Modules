@@ -56,3 +56,7 @@ std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj) {
      << std::endl;
   return os;
 }
+
+std::string ShrubberyCreationForm::getTarget() const{
+	return (m_target);
+}

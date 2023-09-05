@@ -16,6 +16,7 @@ Intern::~Intern() {}
 
 AForm *RobotomyRequestForm(std::string target){
 	std::string newString = target;
+	std::cout << "robotarget: " << target << std::endl;
 	return new class RobotomyRequestForm(target);
 }
 

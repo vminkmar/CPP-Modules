@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 Bureaucrat::Bureaucrat(){}
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade)
     : m_name(name), m_grade(grade) {
   std::cout << "Bureaucrat " << m_name << " Constructor called" << std::endl;
   if (m_grade > 150)

@@ -40,3 +40,7 @@ std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj) {
      << std::endl;
   return os;
 }
+
+std::string RobotomyRequestForm::getTarget() const{
+	return (m_target);
+}

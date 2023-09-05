@@ -22,6 +22,7 @@ AForm &AForm::operator=(const AForm &obj) {
   signGrade = obj.signGrade;
   executeGrade = obj.executeGrade;
   Signed = obj.Signed;
+	m_target = obj.m_target;
   return *this;
 }
 
@@ -62,6 +63,10 @@ const char *AForm::GradeTooHighException::what() const throw() {
 }
 const char *AForm::FormNotSignedException::what() const throw() {
   return "Form is not signed";
+}
+
+std::string AForm::getTarget() const{
+	return (this->m_target);
 }
 
 // std::ostream &operator<<(std::ostream &os, const AForm &obj) {

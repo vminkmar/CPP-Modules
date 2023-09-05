@@ -31,6 +31,7 @@ int main() {
   try {
     Bureaucrat person4("Peter", 0);
   } catch (std::exception &e) {
+		std::cout << std::endl;
     std::cout << e.what() << std::endl;
   }
 	std::cout << std::endl;

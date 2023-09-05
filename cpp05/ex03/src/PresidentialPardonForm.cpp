@@ -42,3 +42,7 @@ std::ostream &operator<<(std::ostream &os, const PresidentialPardonForm &obj) {
      << " and a Execute Grade of " << obj.getexecuteGrade() << std::endl;
   return os;
 }
+
+std::string PresidentialPardonForm::getTarget() const{
+	return (m_target);
+}

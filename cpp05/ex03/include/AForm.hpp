@@ -13,6 +13,7 @@ private:
   int signGrade;
   int executeGrade;
   bool Signed;
+	std::string m_target;
 
 public:
   AForm();
@@ -31,7 +32,7 @@ public:
   void printStatusForm() const;
   bool isSigned() const;
   virtual void execute(Bureaucrat const &executor) const = 0;
-
+	std::string getTarget() const;
   // nested classes
   class GradeTooHighException : public std::exception {
   public:

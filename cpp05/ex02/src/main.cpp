@@ -19,16 +19,15 @@ int main() {
   try {
     PPF.beSigned(person2);
   } catch (std::exception &e) {
-    std::cout << e.what() << std::endl;
+    std::cout << person2.getName() << ": "<< e.what() << std::endl;
   }
   std::cout << std::endl;
   person2.signForm(PPF);
   try {
-    PPF.execute(person2);
+    person2.executeForm(PPF);
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
-  std::cout << std::endl;
   std::cout << std::endl;
   std::cout << std::endl;
 
@@ -37,23 +36,19 @@ int main() {
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
-  std::cout << std::endl;
   person1.signForm(PPF);
   try {
-    PPF.execute(person1);
+    person1.executeForm(PPF);
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << std::endl;
 	person1.signForm(SCF); 
 	SCF.beSigned(person1);
-	SCF.execute(person1);
+	person1.executeForm(SCF);
   std::cout << std::endl;
 	RRF.beSigned(person1);
 	person1.signForm(RRF);
-	RRF.execute(person1);
-  std::cout << std::endl;
-  std::cout << std::endl;
+	person1.executeForm(RRF);
   std::cout << std::endl;
 }
