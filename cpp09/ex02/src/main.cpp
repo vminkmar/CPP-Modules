@@ -15,5 +15,6 @@ int main(int argc, char **argv) {
   }
 
   Merge.getPairsAndSort();
-  // Merge.print();
+	// Merge.print();
+	Merge.print1();
 }
