@@ -14,25 +14,24 @@ Intern::Intern(const Intern &copy)
 
 Intern::~Intern() {}
 
-AForm *RobotomyRequestForm(std::string target){
+AForm *RobotomyRequestFormCreation(std::string target){
 	std::string newString = target;
-	std::cout << "robotarget: " << target << std::endl;
-	return new class RobotomyRequestForm(target);
+	return new RobotomyRequestForm(target);
 }
 
-AForm *PresidentialPardonForm(std::string target){
+AForm *PresidentialPardonFormCreation(std::string target){
 	std::string newString = target;
-	return new class PresidentialPardonForm(target);
+	return new PresidentialPardonForm(target);
 }
 
-AForm *ShrubberyCreationForm(std::string target){
+AForm *ShrubberyCreationFormCreation(std::string target){
 	std::string newString = target;
-	return new class ShrubberyCreationForm(target);
+	return new ShrubberyCreationForm(target);
 }
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	AForm *(*forms[])(std::string target) = {RobotomyRequestForm, PresidentialPardonForm, ShrubberyCreationForm};
+	AForm *(*forms[])(std::string target) = {RobotomyRequestFormCreation, PresidentialPardonFormCreation, ShrubberyCreationFormCreation};
 	std::string formNames[3] = {"robotomy", "presidential", "shrubbery"};
 	for(int i = 0; i < 3; i++)
 	{

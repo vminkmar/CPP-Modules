@@ -13,6 +13,7 @@ private:
   int signGrade;
   int executeGrade;
   bool Signed;
+protected:
 	std::string m_target;
 
 public:

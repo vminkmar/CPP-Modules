@@ -5,6 +5,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+class AForm;
+class PresidentialPardonForm;
+class RobotomyRequestForm;
+class ShrubberyCreationForm;
+
 class Intern {
 
 public:
