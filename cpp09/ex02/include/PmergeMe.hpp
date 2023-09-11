@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <deque>
 #include <exception>
 #include <iostream>
 #include <iterator>
 #include <new>
-#include <deque>
 #include <stack>
 #include <string>
 #include <vector>
@@ -20,29 +20,37 @@ private:
   std::deque<int> deque;
   std::deque<int> resultDeque;
   std::deque<std::pair<int, int> > newDeque;
-  size_t lastJacob;
-  clock_t startTime;
-  clock_t endTime;
-  int left;
+  size_t m_lastJacob;
+  clock_t m_startTime;
+  clock_t m_endTime;
+  int m_left;
 
 public:
+  int m_counter;
   PmergeMe();
   PmergeMe(int, int);
   ~PmergeMe();
   // PmergeMe(const PmergeMe &copy);
   // PmergeMe &operator=(const PmergeMe &obj);
-  PmergeMe &argvToIntandVector(char **argv, int i);
-  void print();
+  PmergeMe &argvToIntandVector(char **argv);
+  int jabosthal(int n);
   void printResult();
+
+  void sortPairsDeque();
+  void writeInNewDeque();
+  void getDeque();
+  void finalSortDeque(size_t jacob);
+  void sortBySizeDeque(size_t i, size_t n);
+  int binarySortDeque(int first, int number);
+
   void sortVector(int jacob);
-  void getPairsAndSort();
   void sortPairs();
   void writeInNewVector();
+  void getVector();
   void finalSort(size_t jacob);
   void sortBySize(size_t i, size_t n);
-  int jabosthal(int n);
   void sortByJacob();
-  int binarySort(int lastJacob, int number);
+  int binarySort(int first, int number);
   class wrongInputException : public std::exception {
   public:
     virtual const char *what() const throw();
