@@ -5,15 +5,15 @@ int main() {
   Bureaucrat person2("Bernhard", 1);
   Bureaucrat person3(person2);
 	std::cout << std::endl;
-  std::cout << person1;
+  std::cout << "Person 1: " << person1 << std::endl;
 	std::cout << std::endl;
-  std::cout << person3;
+  std::cout << "Person 3: " << person3 << std::endl;
 	std::cout << std::endl;
   person1.incrementGrade(100);
-  std::cout << person1;
+  std::cout << "Person 1: " << person1 << std::endl;
 	std::cout << std::endl;
   person3.decrementGrade(100);
-  std::cout << person3;
+  std::cout << "Person 3: " << person3 << std::endl;
 	std::cout << std::endl;
   try {
     person1.incrementGrade(100);
