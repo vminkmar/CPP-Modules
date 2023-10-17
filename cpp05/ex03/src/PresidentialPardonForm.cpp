@@ -1,14 +1,14 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : AForm("PresidentialPardonForm", 25, 5, false), m_target("") {
-	m_target = "";
+    : AForm("PresidentialPardonForm", 25, 5), m_target("") {
+  m_target = "";
   std::cout << "Presidential Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-    : AForm("PresidentialPardonForm", 25, 5, false) {
-			m_target = target;
+    : AForm("PresidentialPardonForm", 25, 5) {
+  m_target = target;
   std::cout << "Presidential Target Constructor called" << std::endl;
 }
 
@@ -22,10 +22,10 @@ PresidentialPardonForm::operator=(const PresidentialPardonForm &obj) {
   return *this;
 }
 
-PresidentialPardonForm::PresidentialPardonForm
-    (const PresidentialPardonForm &copy) : AForm("PresidentialPardonForm", 25, 5, false)
-  {
-	 m_target = copy.m_target;
+PresidentialPardonForm::PresidentialPardonForm(
+    const PresidentialPardonForm &copy)
+    : AForm("PresidentialPardonForm", 25, 5) {
+  m_target = copy.m_target;
   *this = copy;
 }
 
@@ -46,6 +46,4 @@ std::ostream &operator<<(std::ostream &os, const PresidentialPardonForm &obj) {
   return os;
 }
 
-std::string PresidentialPardonForm::getTarget() const{
-	return (m_target);
-}
+std::string PresidentialPardonForm::getTarget() const { return (m_target); }

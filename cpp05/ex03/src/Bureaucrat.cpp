@@ -46,17 +46,17 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
   return os;
 }
 
-
-void Bureaucrat::signForm(AForm &signedForm){
-	if(signedForm.getSignGrade() >= m_grade)
-		std::cout << m_name << " signed " << signedForm.getName() << std::endl;
-	else
-		std::cout << m_name << " couldn't sign " << signedForm.getName() << " because his grade of " << m_grade << " is too low." << std::endl;
+void Bureaucrat::signForm(AForm &signedForm) {
+  if (signedForm.getSignGrade() >= m_grade)
+    std::cout << m_name << " signed " << signedForm.getName() << std::endl;
+  else
+    std::cout << m_name << " couldn't sign " << signedForm.getName()
+              << " because his grade of " << m_grade << " is too low."
+              << std::endl;
 }
 
-void Bureaucrat::executeForm(AForm const &form) const
-{
-	std::cout << m_name << "executed " << form.getName();
+void Bureaucrat::executeForm(AForm const &form) const {
+  std::cout << m_name << "executed " << form.getName();
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {

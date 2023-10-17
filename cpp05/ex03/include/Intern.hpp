@@ -15,7 +15,7 @@ class Intern {
 public:
   Intern();
   Intern(const Intern &copy);
-  // Intern &operator=(const Intern &obj);
+  Intern &operator=(const Intern &obj);
   ~Intern();
 
   // functions

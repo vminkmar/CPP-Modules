@@ -1,8 +1,8 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 #include "AForm.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 class AForm;
 
 class ShrubberyCreationForm : public AForm {
@@ -15,12 +15,11 @@ public:
   ShrubberyCreationForm(const ShrubberyCreationForm &copy);
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
   ~ShrubberyCreationForm();
-	
-	std::string getTarget() const;
 
-	//functions
+  std::string getTarget() const;
+
+  // functions
   void execute(Bureaucrat const &executor) const;
-
 };
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj);
 

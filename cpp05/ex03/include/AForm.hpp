@@ -18,7 +18,7 @@ protected:
 
 public:
   AForm();
-  AForm(std::string name, int signGrade, int executeGrade, bool Signed);
+  AForm(std::string name, int signGrade, int executeGrade);
   AForm(const AForm &copy);
   AForm &operator=(const AForm &obj);
   ~AForm();

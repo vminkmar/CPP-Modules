@@ -1,14 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("ShrubberyCreationForm", 145, 137, false){
-			m_target = "";
+    : AForm("ShrubberyCreationForm", 145, 137) {
+  m_target = "";
   std::cout << "Shrubbery Constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-    : AForm("ShrubberyCreationForm", 145, 137, false){
-	m_target = target;
+    : AForm("ShrubberyCreationForm", 145, 137) {
+  m_target = target;
   std::cout << "Shrubbery Constructor called" << std::endl;
 }
 
@@ -22,9 +22,9 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
   return *this;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(
-    const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 72, 45, false){
-	m_target = copy.m_target;
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
+    : AForm("ShrubberyCreationForm", 72, 45) {
+  m_target = copy.m_target;
   *this = copy;
 }
 
@@ -48,18 +48,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
                "      | |\n"
                "      | |\n";
     newFile.close();
-		std::cout << newString << " File has been created" << std::endl;
+    std::cout << newString << " File has been created" << std::endl;
   }
   return;
 }
 
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj) {
-  os << "Shrubbery has a Sign Grade of "
-     << obj.getSignGrade() << " and a Execute Grade of " << obj.getexecuteGrade()
-     << std::endl;
+  os << "Shrubbery has a Sign Grade of " << obj.getSignGrade()
+     << " and a Execute Grade of " << obj.getexecuteGrade() << std::endl;
   return os;
 }
 
-std::string ShrubberyCreationForm::getTarget() const{
-	return (m_target);
-}
+std::string ShrubberyCreationForm::getTarget() const { return (m_target); }

@@ -2,8 +2,8 @@
 
 AForm::AForm() { std::cout << name << " Constructor called" << std::endl; }
 
-AForm::AForm(std::string name, int signGrade, int executeGrade, bool Signed)
-    : name(name), signGrade(signGrade), executeGrade(executeGrade), Signed(Signed) {
+AForm::AForm(std::string name, int signGrade, int executeGrade)
+    : name(name), signGrade(signGrade), executeGrade(executeGrade) {
 			if(signGrade > 150 || executeGrade > 150)
 				throw GradeTooLowException();
 			else if(signGrade < 1 || executeGrade < 1)
