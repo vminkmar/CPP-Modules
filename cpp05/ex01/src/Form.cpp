@@ -2,8 +2,8 @@
 
 Form::Form(){}
 
-Form::Form(std::string name, int signGrade, int executeGrade, bool Signed)
-    : name(name), signGrade(signGrade), executeGrade(executeGrade), Signed(Signed) {
+Form::Form(std::string name, int signGrade, int executeGrade)
+    : name(name), signGrade(signGrade), executeGrade(executeGrade) {
 			Signed = false;
   std::cout << name << " Constructor called" << std::endl;
 }

@@ -12,7 +12,7 @@ private:
 
 public:
   Form();
-  Form(std::string name, int signGrade, int executeGrade, bool Signed);
+  Form(std::string name, int signGrade, int executeGrade);
   Form(const Form &copy);
   Form &operator=(const Form &obj);
   ~Form();
