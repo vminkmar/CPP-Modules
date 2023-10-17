@@ -43,9 +43,9 @@ bool ScalarConverter::checkForFloat(std::string input) {
       i++;
     else if (input[i] == 'f') {
       counter++;
+    	i++;
     } else
       return (false);
-    i++;
   }
   if (counter != 1)
     return (false);
