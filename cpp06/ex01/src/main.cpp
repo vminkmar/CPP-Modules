@@ -18,9 +18,9 @@ int main(){
     Serializer serialize;
 
     uintptr_t test = serialize.serialize(&animal);
-    std::cout << test << std::endl;
+    std::cout << "serialized: " << test << std::endl;
     Data *test2 = serialize.deserialize(test);
-    std::cout << test2 << std::endl;
+    std::cout << "deserialized: " <<test2 << std::endl;
     if(test2 == &animal)
         std::cout << "success" << std::endl;
     else
