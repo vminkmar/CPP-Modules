@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("ShrubberyCreationForm", 145, 137, false), m_target(""){
+    : AForm("ShrubberyCreationForm", 145, 137), m_target(""){
   std::cout << "Shrubbery Constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-    : AForm("ShrubberyCreationForm", 145, 137, false), m_target(target) {
+    : AForm("ShrubberyCreationForm", 145, 137), m_target(target) {
   std::cout << "Shrubbery Constructor called" << std::endl;
 }
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(
-    const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 72, 45, false), m_target(copy.m_target){
+    const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 72, 45), m_target(copy.m_target){
   *this = copy;
 }
 

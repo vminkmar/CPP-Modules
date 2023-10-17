@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : AForm("RobotomyRequestForm", 72, 45, false), m_target(""){
+    : AForm("RobotomyRequestForm", 72, 45), m_target(""){
   std::cout << "Robotomy Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    : AForm("RobotomyRequestForm", 72, 45, false),m_target(target) {
+    : AForm("RobotomyRequestForm", 72, 45),m_target(target) {
   std::cout << "Robotomy Constructor called" << std::endl;
 }
 
@@ -21,7 +21,7 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &obj) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(
-    const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45, false), m_target(copy.m_target){
+    const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45), m_target(copy.m_target){
   *this = copy;
 }
 
