@@ -32,13 +32,7 @@ void Span::print() {
 }
 
 unsigned int Span::getCurrentSize() {
-  int currentSize = 0;
-  for (std::vector<int>::const_iterator i = m_vector.begin();
-       i != m_vector.end(); i++) {
-    if (m_vector.empty())
-      break;
-  }
-  return currentSize;
+  return m_vector.size();
 }
 
 int Span::shortestSpan() {

@@ -4,6 +4,7 @@ int main() {
   Span sp = Span(10);
   sp.addMoreNumbers(10);
   sp.print();
+  std::cout << "Size: " << sp.getCurrentSize() << std::endl; 
   std::cout << "shortest Span: " << sp.shortestSpan() << std::endl;
   std::cout << "longest Span: " << sp.longestSpan() << std::endl;
   try {
