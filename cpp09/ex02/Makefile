@@ -28,7 +28,7 @@ $(ODIR):
 	mkdir $(ODIR)
 
 clean:
-	$(RM) $(OBJS_O) $(OBJS_D) SCF_shrubbery
+	$(RM) $(OBJS_O) $(OBJS_D)
 
 fclean: clean
 	$(RM) $(NAME)
