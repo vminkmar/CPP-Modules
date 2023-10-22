@@ -1,28 +1,30 @@
 #include "Span.hpp"
 
-Span::Span() : m_size(0) {
-  std::cout << "Default Constructor called" << std::endl;
-}
+Span::Span() { std::cout << "Default Constructor called" << std::endl; }
 
-Span::Span(unsigned int N) : m_size(N) {
+Span::Span(unsigned int N) : N(N), m_size(0) {
   std::cout << "Constructor with Size " << N << " called" << std::endl;
   m_vector.reserve(m_size);
 }
 
 Span::~Span() { std::cout << "Destructor called" << std::endl; }
 
-Span::Span(const Span &copy) { *this = copy.N; }
+Span::Span(const Span &copy) {
+  this->m_size = copy.m_size;
+  this->N = copy.N;
+}
 
 Span &Span::operator=(const Span &obj) {
-  N = obj.N;
   m_size = obj.m_size;
   return *this;
 }
 
 void Span::addNumber(int number) {
-  if (m_vector.size() > m_size)
+  if (m_size >= N)
     throw TooManyValuesException();
   m_vector.push_back(number);
+  m_size++;
+	std::cout << m_size << std::endl;
 }
 
 void Span::print() {
@@ -31,12 +33,10 @@ void Span::print() {
     std::cout << *i << std::endl;
 }
 
-unsigned int Span::getCurrentSize() {
-  return m_vector.size();
-}
+unsigned int Span::getCurrentSize() { return m_vector.size(); }
 
 int Span::shortestSpan() {
-  if (m_vector.size() == 0 || m_vector.size() == 1)
+  if (m_vector.size() <= 1)
     throw NoSpanException();
   std::sort(m_vector.begin(), m_vector.end());
   std::vector<int>::const_iterator first;
@@ -59,7 +59,7 @@ int Span::shortestSpan() {
 }
 
 int Span::longestSpan() {
-  if (m_vector.size() == 0 || m_vector.size() == 1)
+  if (m_vector.size() <= 1)
     throw NoSpanException();
   std::sort(m_vector.begin(), m_vector.end());
   std::vector<int>::const_iterator i;
