@@ -9,14 +9,21 @@ Span::Span(unsigned int N) : N(N), m_size(0) {
 
 Span::~Span() { std::cout << "Destructor called" << std::endl; }
 
-Span::Span(const Span &copy) {
-  this->m_size = copy.m_size;
-  this->N = copy.N;
+Span::Span(const Span &copy) : N(copy.N), m_size(copy.m_size){
+	for(unsigned int i = 0; i < m_size; i++)
+	{
+		m_vector[i] = copy.m_vector[i];
+	}
 }
 
 Span &Span::operator=(const Span &obj) {
-  m_size = obj.m_size;
-  return *this;
+	if(this != &obj){
+		m_vector.clear();
+		m_size = obj.m_size;
+		N = obj.N;
+		m_vector.reserve(N);
+	}
+	return *this;
 }
 
 void Span::addNumber(int number) {
