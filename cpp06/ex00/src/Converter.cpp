@@ -34,7 +34,7 @@ void ScalarConverter::convertFloat(float f, std::string input) {
   else
     std::cout << "int    |			" << static_cast<int>(f)
               << std::endl;
-  if (f < 0 && isprint(f))
+  if (f > 0 && isprint(f))
     std::cout << "char   |			" << static_cast<char>(f)
               << std::endl;
   else
@@ -51,7 +51,7 @@ void ScalarConverter::convertDouble(double d, std::string input) {
   else
     std::cout << "int    |			" << static_cast<int>(d)
               << std::endl;
-  if (d < 0 && isprint(d))
+  if (d > 0 && isprint(d))
     std::cout << "char   |			" << static_cast<char>(d)
               << std::endl;
   else
