@@ -55,14 +55,16 @@ public:
 
   ~Array() { delete[] array; }
 
-  Array(const Array &copy) {
-    this->array = NULL;
-    *this = copy;
+  Array(const Array &copy) : array(new T[copy.n]), n(copy.n){
+		for(unsigned int i = 0; i < n; i++){
+			array[i] = copy.array[i];
+		}
   }
 
   Array &operator=(const Array &obj) {
     if (this != &obj) {
       delete[] array;
+			n = obj.n;
       array = new T[n];
       for (unsigned int i = 0; i < n; i++)
         array[i] = obj.array[i];
