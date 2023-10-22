@@ -35,7 +35,7 @@ public:
     return array[index];
   }
 
-  unsigned int size() { return n; }
+  unsigned int size() const { return n; }
 
   class IndexException : public std::exception {
   public:
@@ -76,7 +76,7 @@ public:
     return array[index];
   }
 
-  unsigned int size() { return n; }
+  unsigned int size() const { return n; }
 
   class IndexException : public std::exception {
   public:
