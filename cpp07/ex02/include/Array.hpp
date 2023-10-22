@@ -14,14 +14,16 @@ public:
 
   ~Array1() { delete[] array; }
 
-  Array1(const Array1 &copy) {
-    this->array = NULL;
-    *this = copy;
+  Array1(const Array1 &copy) : array(new U[copy.n]){
+		for(unsigned int i = 0; i < n; i++){
+			array[i] = copy.array[i];
+		}
   }
 
   Array1 &operator=(const Array1 &obj) {
     if (this != &obj) {
       delete[] array;
+			n = obj.n;
       array = new U[n];
       for (unsigned int i = 0; i < n; i++)
         array[i] = obj.array[i];
