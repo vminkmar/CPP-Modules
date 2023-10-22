@@ -43,7 +43,7 @@ int main() {
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-
+	newArray3[1] = 10;
   try {
     std::cout << newArray3[1] << std::endl;
   } catch (Array<int>::IndexException &ex) {
