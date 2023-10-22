@@ -19,15 +19,4 @@ int main() {
   } catch (Span::NoSpanException &ex) {
     std::cerr << "Caught exception: " << ex.what() << std::endl;
   }
-	sp1.addNumber(100);
-	std::cout << std::endl;
-	std::cout << std::endl;
-	sp1.print();
-	try {
-    sp1.longestSpan();
-  } catch (Span::NoSpanException &ex) {
-    std::cerr << "Caught exception: " << ex.what() << std::endl;
-  }
-	std::cout << std::endl;
-	std::cout << std::endl;
 }
