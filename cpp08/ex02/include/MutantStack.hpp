@@ -9,8 +9,10 @@
 #include <deque>
 #include <string>
 #include <vector>
+#include <list>
 
-template <typename T, typename U = std::deque<T> > class MutantStack : public std::stack<T, U>{
+template <typename T, typename U = std::deque<T> >
+ class MutantStack : public std::stack<T, U>{
 
 public:
   MutantStack() : std::stack<T, U>() {};
