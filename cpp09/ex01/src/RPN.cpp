@@ -4,13 +4,16 @@ RPN::RPN() {}
 
 RPN::~RPN() {}
 
-// RPN::RPN(const RPN &copy){
+RPN::RPN(const RPN &copy){
+	stack = copy.stack;
+}
 
-// }
-
-// RPN:RPN &operator=(const RPN &obj){
-
-// }
+RPN &RPN::operator=(const RPN &obj){
+	if(this == &obj)
+		return *this;
+	stack = obj.stack;
+	return *this;
+}
 
 bool checkInput(int argc) {
   if (argc != 2) {
@@ -90,6 +93,6 @@ void RPN::calculate(std::string line) {
 		std::cout << "Too many numbers in the stack" << std::endl;
 		return;
 	}
-  stack.pop();
   std::cout << stack.top() << std::endl;
+  stack.pop();
 }

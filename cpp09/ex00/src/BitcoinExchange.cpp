@@ -36,14 +36,18 @@ void BitcoinExchange::iterate(){
 		std::cout << iterate->first << "	" << iterate->second << std::endl;
 }
 
-// BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
-// {
-// }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
+{
+	Database = copy.Database;
+}
 
-// BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
-// {
-// 	// TODO: insert return statement here
-// }
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+	if(this == &obj)
+		return *this;
+	Database = obj.Database;
+	return *this;
+}
 
 void checkInput(int argc) {
   if (argc != 2) {

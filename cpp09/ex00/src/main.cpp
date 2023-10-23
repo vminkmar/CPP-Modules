@@ -102,7 +102,7 @@ std::string getDateInput(std::string &line) {
   std::string temp;
   size_t startPos = line.find('|');
   if (startPos == std::string::npos) {
-    std::cout << "Invalid Format the date" << std::endl;
+    std::cout << "Invalid Format of the date" << std::endl;
     return "";
   }
   date = line.substr(0, startPos);

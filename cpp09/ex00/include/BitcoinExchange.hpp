@@ -15,8 +15,8 @@ private:
 public:
   BitcoinExchange();
   ~BitcoinExchange();
-  // BitcoinExchange(const BitcoinExchange &copy);
-  // BitcoinExchange &operator=(const BitcoinExchange &obj);
+  BitcoinExchange(const BitcoinExchange &copy);
+  BitcoinExchange &operator=(const BitcoinExchange &obj);
   void createMap(std::string date, float value);
 	void compareAndPrint(std::string date, float valueInput, float valueData);
 	void iterate();
