@@ -31,7 +31,6 @@ void Span::addNumber(int number) {
     throw TooManyValuesException();
   m_vector.push_back(number);
   m_size++;
-	std::cout << m_size << std::endl;
 }
 
 void Span::print() {
