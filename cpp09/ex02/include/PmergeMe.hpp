@@ -30,8 +30,8 @@ public:
   PmergeMe();
   PmergeMe(int, int);
   ~PmergeMe();
-  // PmergeMe(const PmergeMe &copy);
-  // PmergeMe &operator=(const PmergeMe &obj);
+  PmergeMe(const PmergeMe &copy);
+  PmergeMe &operator=(const PmergeMe &obj);
   PmergeMe &argvToIntandVector(char **argv);
   int jabosthal(int n);
   void printResult();
@@ -51,6 +51,12 @@ public:
   void sortBySize(size_t i, size_t n);
   void sortByJacob();
   int binarySort(int first, int number);
+
+  class justOneNumberException : public std::exception {
+  public:
+    virtual const char *what() const throw();
+  };
+
   class wrongInputException : public std::exception {
   public:
     virtual const char *what() const throw();

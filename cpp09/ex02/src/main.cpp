@@ -7,7 +7,11 @@ int main(int argc, char **argv) {
   while (Merge.m_counter < 2) {
     try {
       Merge.argvToIntandVector(argv);
-    } catch (PmergeMe::wrongInputException &ex1) {
+    }catch(PmergeMe::justOneNumberException &ex){
+      std::cerr << "Caught exception: " << ex.what() << std::endl;
+      return (1);
+		}
+		 catch (PmergeMe::wrongInputException &ex1) {
       std::cerr << "Caught exception: " << ex1.what() << std::endl;
       return (1);
     } catch (PmergeMe::negativeIntException &ex2) {

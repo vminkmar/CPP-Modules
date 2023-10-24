@@ -5,12 +5,45 @@ PmergeMe::PmergeMe()
 
 PmergeMe::~PmergeMe() {}
 
-PmergeMe &PmergeMe::argvToIntandVector(char **argv) {
-  int arg = 1;
+PmergeMe::PmergeMe(const PmergeMe &copy)
+{
+	vector = copy.vector;
+	result = copy.result;
+	newPair = copy.newPair;
+	deque = copy.deque;
+	resultDeque = copy.resultDeque;
+	newDeque = copy.newDeque;
+	m_lastJacob = copy.m_lastJacob;
+	m_startTime = copy.m_startTime;
+	m_endTime = copy.m_endTime;
+	m_left = copy.m_left;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
+{
+	if(this == &obj)
+		return *this;
+	vector = obj.vector;
+	result = obj.result;
+	newPair = obj.newPair;
+	deque = obj.deque;
+	resultDeque = obj.resultDeque;
+	newDeque = obj.newDeque;
+	m_lastJacob = obj.m_lastJacob;
+	m_startTime = obj.m_startTime;
+	m_endTime = obj.m_endTime;
+	m_left = obj.m_left;
+	return *this;
+}
+
+PmergeMe &PmergeMe::argvToIntandVector(char **argv)
+{
+	int arg = 1;
   int start = 0;
   int end = 0;
   long number;
   std::string tmp;
+  m_startTime = clock();
   while (argv[arg] != NULL) {
     end = 0;
     while (argv[arg][end] != '\0') {
@@ -35,7 +68,6 @@ PmergeMe &PmergeMe::argvToIntandVector(char **argv) {
         throw negativeIntException();
       if (number > INT_MAX)
         throw intTooBigException();
-      m_startTime = clock();
       if (this->m_counter == 0)
         vector.push_back(number);
       else if (this->m_counter == 1)
@@ -43,6 +75,10 @@ PmergeMe &PmergeMe::argvToIntandVector(char **argv) {
     }
     arg++;
   }
+		if(this->m_counter == 0 && vector.size() <= 1)
+			throw justOneNumberException();
+		if (this->m_counter == 1 &&  deque.size() <= 1)
+			throw justOneNumberException();
   return *this;
 }
 
@@ -314,4 +350,8 @@ const char *PmergeMe::negativeIntException::what() const throw() {
 
 const char *PmergeMe::intTooBigException::what() const throw() {
   return "Input is bigger than Int_Max";
+}
+
+const char *PmergeMe::justOneNumberException::what() const throw() {
+  return "There is just one number as Input";
 }
