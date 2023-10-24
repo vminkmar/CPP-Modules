@@ -22,6 +22,7 @@ Span &Span::operator=(const Span &obj) {
 		m_size = obj.m_size;
 		N = obj.N;
 		m_vector.reserve(N);
+		m_vector = obj.m_vector;
 	}
 	return *this;
 }
