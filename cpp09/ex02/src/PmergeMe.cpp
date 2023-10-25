@@ -75,9 +75,7 @@ PmergeMe &PmergeMe::argvToIntandVector(char **argv)
     }
     arg++;
   }
-		if(this->m_counter == 0 && vector.size() <= 1)
-			throw justOneNumberException();
-		if (this->m_counter == 1 &&  deque.size() <= 1)
+		if((this->m_counter == 0 && vector.size() <= 1) || (this->m_counter == 1 &&  deque.size() <= 1))
 			throw justOneNumberException();
   return *this;
 }
