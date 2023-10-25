@@ -18,7 +18,7 @@ public:
   BitcoinExchange(const BitcoinExchange &copy);
   BitcoinExchange &operator=(const BitcoinExchange &obj);
   void createMap(std::string date, float value);
-	void compareAndPrint(std::string date, float valueInput, float valueData);
+	void compareAndPrint(std::string date, float valueInput);
 	void iterate();
 };
 void checkInput(int argc);

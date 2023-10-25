@@ -172,7 +172,7 @@ int main(int argc, char *argv[]) {
     valueInput = getValueInput(line);
     if (valueInput < 0)
       continue;
-    Map.compareAndPrint(dateInput, valueInput, valueData);
+    Map.compareAndPrint(dateInput, valueInput);
   }
   inputFile.close();
 }
