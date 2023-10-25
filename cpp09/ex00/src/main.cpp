@@ -91,6 +91,10 @@ float getValueInput(std::string &line) {
     std::cout << "There are not enough Bitcoin" << std::endl;
     return (-1);
   }
+	if (value > 1000) {
+    std::cout << "Value can't be bigger than 1000" << std::endl;
+    return (-1);
+  }
   if (value < 0) {
     std::cout << "Value has to be positiv" << std::endl;
   }
