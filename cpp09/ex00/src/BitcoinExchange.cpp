@@ -24,7 +24,6 @@ void BitcoinExchange::compareAndPrint(std::string date, float valueInput,
 		Date = Database.begin();
 	else
 		Date--;
-	// std::cout << Date->first << "		" << Date->second << std::endl;
   std::cout << date << " => " << valueInput << " = " << valueInput *
   Date->second << std::endl;
 }
