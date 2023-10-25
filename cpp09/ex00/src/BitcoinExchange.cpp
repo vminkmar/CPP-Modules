@@ -10,16 +10,17 @@ void BitcoinExchange::createMap(std::string date, float value) {
 
 void BitcoinExchange::compareAndPrint(std::string date, float valueInput,
                                       float valueData) {
+																				valueData = 0;
   typedef std::map<std::string, float>::iterator MapIterator;
   for (MapIterator it = Database.begin(); it != Database.end(); it++) {
     if (date == it->first) {
       std::cout << date << " => " << valueInput << " = "
-                << valueInput * valueData << std::endl;
+                << valueInput * it->second << std::endl;
       return;
     }
   }
   std::map<std::string, float>::iterator Date;
-  Date = Database.upper_bound(date);
+	Date = Database.upper_bound(date);
 	if(Date == Database.begin())
 		Date = Database.begin();
 	else

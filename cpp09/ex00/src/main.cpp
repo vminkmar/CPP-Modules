@@ -79,7 +79,7 @@ float getValueInput(std::string &line) {
   size_t endPos = line.size() - 1;
   size_t startPos = line.find('|');
   temp = line.substr(startPos + 1, endPos);
-	std::string newString;
+  std::string newString;
   newString = strtrimValue(temp);
   char *ptr;
   float value = strtof(newString.c_str(), &ptr);
@@ -91,7 +91,7 @@ float getValueInput(std::string &line) {
     std::cout << "There are not enough Bitcoin" << std::endl;
     return (-1);
   }
-	if (value > 1000) {
+  if (value > 1000) {
     std::cout << "Value can't be bigger than 1000" << std::endl;
     return (-1);
   }
@@ -115,6 +115,10 @@ std::string getDateInput(std::string &line) {
     std::cout << "invalid date" << std::endl;
     return "";
   }
+  if (date < "2009-01-02") {
+    std::cout << "date is to far in the past" << std::endl;
+    return "";
+  }
   return date;
 }
 
@@ -124,33 +128,43 @@ int main(int argc, char *argv[]) {
   std::fstream dataFile(nameDataFile.c_str());
   if (!dataFile.is_open()) {
     std::cout << "There is no data file" << std::endl;
-    exit(1);
+    return (1);
   }
   std::string dateData;
   float valueData;
+  int counter = 0;
   BitcoinExchange Map;
   while (!dataFile.eof()) {
     std::string line;
     std::getline(dataFile, line);
-    if (line == "date,exchange_rate" || line.empty())
+    if (counter == 0) {
+      counter++;
+      continue;
+    }
+    if (line.empty())
       continue;
     dateData = getDateData(line);
     valueData = getValueData(line);
     Map.createMap(dateData, valueData);
   }
-	// Map.iterate();
+  // Map.iterate();
   dataFile.close();
   std::fstream inputFile(nameInputFile.c_str());
   if (!inputFile.is_open()) {
     std::cout << "There is no data file" << std::endl;
-    exit(1);
+    return (1);
   }
   std::string dateInput;
   float valueInput;
+  counter = 0;
   while (!inputFile.eof()) {
     std::string line;
     std::getline(inputFile, line);
-    if (line == "date,exchange_rate" || line.empty())
+    if (counter == 0) {
+      counter++;
+      continue;
+    }
+    if (line.empty())
       continue;
     dateInput = getDateInput(line);
     if (dateInput.empty())
@@ -158,7 +172,7 @@ int main(int argc, char *argv[]) {
     valueInput = getValueInput(line);
     if (valueInput < 0)
       continue;
-		Map.compareAndPrint(dateInput, valueInput, valueData);
+    Map.compareAndPrint(dateInput, valueInput, valueData);
   }
   inputFile.close();
 }
