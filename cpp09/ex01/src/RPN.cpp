@@ -4,15 +4,13 @@ RPN::RPN() {}
 
 RPN::~RPN() {}
 
-RPN::RPN(const RPN &copy){
-	stack = copy.stack;
-}
+RPN::RPN(const RPN &copy) { stack = copy.stack; }
 
-RPN &RPN::operator=(const RPN &obj){
-	if(this == &obj)
-		return *this;
-	stack = obj.stack;
-	return *this;
+RPN &RPN::operator=(const RPN &obj) {
+  if (this == &obj)
+    return *this;
+  stack = obj.stack;
+  return *this;
 }
 
 bool checkInput(int argc) {
@@ -20,9 +18,8 @@ bool checkInput(int argc) {
     std::cerr << "Check the number of Arguments" << std::endl;
     return false;
   }
-	return true;
+  return true;
 }
-
 
 bool RPN::isOperator(char c) {
   if (c == '+' || c == '-' || c == '*' || c == '/')
@@ -50,10 +47,14 @@ void RPN::calculate(std::string line) {
     return;
   }
   while (i < line.size()) {
+    if (line[0] == ' ') {
+      std::cout << "Input Error" << std::endl;
+      return;
+    }
     if (line[i] == ' ') {
       if (line[i % 2] != ' ') {
         std::cout << "Input Error" << std::endl;
-       return;
+        return;
       }
       i++;
       continue;
@@ -70,12 +71,12 @@ void RPN::calculate(std::string line) {
       }
       stack.push(f);
     } else if (isOperator(line[i])) {
-			if(stack.size() < 2){
-				if(stack.size() == 1)
-					stack.pop();
-				std::cout << "Input Error" << std::endl;
-				return;
-			}
+      if (stack.size() < 2) {
+        if (stack.size() == 1)
+          stack.pop();
+        std::cout << "Input Error" << std::endl;
+        return;
+      }
       char op = line[i];
       float second = stack.top();
       stack.pop();
@@ -88,11 +89,10 @@ void RPN::calculate(std::string line) {
     }
     i++;
   }
-	if (stack.size() != 1)
-	{
-		std::cout << "Too many numbers in the stack" << std::endl;
-		return;
-	}
+  if (stack.size() != 1) {
+    std::cout << "Too many numbers in the stack" << std::endl;
+    return;
+  }
   std::cout << stack.top() << std::endl;
   stack.pop();
 }
