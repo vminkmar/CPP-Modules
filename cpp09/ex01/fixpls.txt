@@ -1,1 +1,0 @@
-sobald 2 leerzeichen am anfang stehen werden leerzeichen im rest des strings ignoriert

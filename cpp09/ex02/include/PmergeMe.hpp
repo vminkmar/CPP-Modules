@@ -11,6 +11,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#include <climits>
 
 class PmergeMe {
 private:

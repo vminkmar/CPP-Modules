@@ -28,4 +28,5 @@ int main(int argc, char **argv) {
     Merge.printResult();
     Merge.m_counter++;
   }
+	return (0);
 }

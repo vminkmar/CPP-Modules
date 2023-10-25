@@ -6,7 +6,7 @@ RM				:=	rm -f
 
 INCLUDE			:= include
 
-CFLAGS			:=	-g -Wall -Wextra -Werror -std=c++98 -MMD -I $(INCLUDE) -fsanitize=address
+CFLAGS			:=	-g -Wall -Wextra -Werror -std=c++98 -MMD -I $(INCLUDE)
 VPATH           :=	src/
 
 SRC_FILES		:=	main.cpp PmergeMe.cpp
